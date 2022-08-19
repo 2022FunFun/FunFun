@@ -31,9 +31,12 @@ using UnityEngine.EventSystems;
         {
             if(other.gameObject.CompareTag("WeaponSpawner") && tagSpawn)
             {
+                SkillSlot.Instance.FindIndexer(this.gameObject);
+
                 GetComponent<SpawnWeapon>().UseCard(other.transform.position);
-                Destroy(gameObject);
+
             }
         }
+        
         
     }
