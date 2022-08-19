@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class SpawnWeapon : MonoBehaviour
 {
-    [SerializeField] GameObject weapon;
+    [SerializeField] GameObject commonWeapon;
+    [SerializeField] GameObject chainWeapon;
     
     public void UseCard(Vector3 pos)
     {
-        Debug.Log("일반카드");
-        //PoolManager.Instance.Pop(weapon,pos,Quaternion.identity);
+        PoolManager.Instance.Pop(commonWeapon,pos,Quaternion.identity);
     }
 
     public void UseChainCard(Vector3 pos)
     {
-        Debug.Log("체인카드");
-        //PoolManager.Instance.Pop(weapon, pos, Quaternion.identity);
+        PoolManager.Instance.Pop(chainWeapon, pos, Quaternion.identity);
     }
 }
