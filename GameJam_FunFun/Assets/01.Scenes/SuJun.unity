@@ -436,14 +436,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   slotPosition:
-  - {x: -450, y: -840, z: 0}
-  - {x: -300, y: -840, z: 0}
-  - {x: -150, y: -840, z: 0}
-  - {x: 0, y: -840, z: 0}
-  - {x: 150, y: -840, z: 0}
-  - {x: 300, y: -840, z: 0}
-  - {x: 450, y: -840, z: 0}
-  - {x: 600, y: -840, z: 0}
+  - {x: 100, y: 130, z: 0}
+  - {x: 250, y: 130, z: 0}
+  - {x: 400, y: 130, z: 0}
+  - {x: 550, y: 130, z: 0}
+  - {x: 700, y: 130, z: 0}
+  - {x: 850, y: 130, z: 0}
+  - {x: 1000, y: 130, z: 0}
+  - {x: 1150, y: 130, z: 0}
   isSkilling: 0
 --- !u!4 &662020145
 Transform:
@@ -959,7 +959,7 @@ RectTransform:
   m_GameObject: {fileID: 1318371907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 919342550}

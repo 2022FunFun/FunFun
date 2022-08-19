@@ -8,6 +8,13 @@ public class SpawnWeapon : MonoBehaviour
     
     public void UseCard(Vector3 pos)
     {
-        PoolManager.Instance.Pop(weapon,pos,Quaternion.identity);
+        Debug.Log("일반카드");
+        //PoolManager.Instance.Pop(weapon,pos,Quaternion.identity);
+    }
+
+    public void UseChainCard(Vector3 pos)
+    {
+        Debug.Log("체인카드");
+        //PoolManager.Instance.Pop(weapon, pos, Quaternion.identity);
     }
 }

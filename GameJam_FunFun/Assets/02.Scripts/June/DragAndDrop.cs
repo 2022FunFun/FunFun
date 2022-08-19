@@ -29,11 +29,12 @@ using UnityEngine.EventSystems;
 
         private void OnTriggerExit2D(Collider2D other)
         {
+        
             if(other.gameObject.CompareTag("WeaponSpawner") && tagSpawn)
             {
-                SkillSlot.Instance.FindIndexer(this.gameObject);
-
-                GetComponent<SpawnWeapon>().UseCard(other.transform.position);
+                Collider2D newCol = other;
+                Debug.Log(newCol.transform.position);
+                SkillSlot.Instance.FindIndexer(this.gameObject, newCol);
 
             }
         }

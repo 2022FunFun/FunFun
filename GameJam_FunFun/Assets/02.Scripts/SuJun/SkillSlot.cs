@@ -60,34 +60,32 @@ public class SkillSlot : MonoBehaviour
 
 
         //�׽�Ʈ�ڵ�
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            GetSlot(0);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            GetSlot(1);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            GetSlot(2);
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            GetSlot(3);
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    GetSlot(0);
+        //}
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    GetSlot(1);
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    GetSlot(2);
+        //}
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    GetSlot(3);
+        //}
 
     }
 
-    public void FindIndexer(GameObject num)
+    public void FindIndexer(GameObject gameObject, Collider2D col)
     {
-        int index = slotList.FindIndex(a => a == num);
-        Debug.Log(num.name);
-        Debug.Log(index);
-        GetSlot(index);
+        int index = slotList.FindIndex(a => a == gameObject);
+        GetSlot(index, col, gameObject);
     }
 
-    public void GetSlot(int num) //ü������ �ƴ����� ����
+    public void GetSlot(int num, Collider2D col, GameObject gameObject) //ü������ �ƴ����� ����
     {
         StartCoroutine(SetCount());
 
@@ -98,7 +96,7 @@ public class SkillSlot : MonoBehaviour
                 Debug.Log("ü��");
 
                 MovingSlot(2, num + 1);
-                //ü���ڵ�
+                gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
                 return;
             }
         }
@@ -110,7 +108,7 @@ public class SkillSlot : MonoBehaviour
                 Debug.Log("ü��");
 
                 MovingSlot(2, num + 2);
-                //ü���ڵ�
+                gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
                 return;
             }
         }
@@ -118,7 +116,8 @@ public class SkillSlot : MonoBehaviour
         Debug.Log("�Ϲ�");
 
         MovingSlot(1, num + 1);
-        //�Ϲݽ�ų�ڵ�
+        Debug.Log(col.transform.position);
+        gameObject.GetComponent<SpawnWeapon>().UseCard(col.transform.position);
     }
 
     public IEnumerator SetCount()
