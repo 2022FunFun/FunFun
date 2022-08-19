@@ -23,7 +23,7 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("PlayerBullet"))
+        if(other.gameObject.CompareTag("Weapon"))
             OnDamage(()=>{});
     }
 
