@@ -6,6 +6,21 @@ using UnityEngine.UI;
 
 public class SkillSlot : MonoBehaviour
 {
+    private static SkillSlot instance = null;
+
+    //ê²Œìž„ ë§¤ë‹ˆì € ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•  ìˆ˜ ìžˆëŠ” í”„ë¡œí¼í‹°. staticì´ë¯€ë¡œ ë‹¤ë¥¸ í´ëž˜ìŠ¤ì—ì„œ ë§˜ê» í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤.
+    public static SkillSlot Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
     public GameObject pikeGameObject;
     public GameObject dualGameObject;
     public GameObject yedoGameObject;
@@ -18,11 +33,18 @@ public class SkillSlot : MonoBehaviour
 
     public Vector3[] slotPosition;
 
-    public bool isSkilling; //ÇöÀç ½ºÅ³ ½ÇÇàÁßÀÎ°¡
+    public bool isSkilling; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½
 
     void Awake()
     {
-
+        if (null == instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Start()
@@ -37,8 +59,8 @@ public class SkillSlot : MonoBehaviour
         if (isSkilling) return;
 
 
-        //Å×½ºÆ®ÄÚµå
-        if(Input.GetKeyDown(KeyCode.A))
+        //ï¿½×½ï¿½Æ®ï¿½Úµï¿½
+        if (Input.GetKeyDown(KeyCode.A))
         {
             GetSlot(0);
         }
@@ -57,7 +79,15 @@ public class SkillSlot : MonoBehaviour
 
     }
 
-    public void GetSlot(int num) //Ã¼ÀÎÀÎÁö ¾Æ´ÑÁö¸¦ Á¤ÇÔ
+    public void FindIndexer(GameObject num)
+    {
+        int index = slotList.FindIndex(a => a == num);
+        Debug.Log(num.name);
+        Debug.Log(index);
+        GetSlot(index);
+    }
+
+    public void GetSlot(int num) //Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         StartCoroutine(SetCount());
 
@@ -65,10 +95,10 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num - 1].name)
             {
-                Debug.Log("Ã¼ÀÎ");
-                
+                Debug.Log("Ã¼ï¿½ï¿½");
+
                 MovingSlot(2, num + 1);
-                //Ã¼ÀÎÄÚµå
+                //Ã¼ï¿½ï¿½ï¿½Úµï¿½
                 return;
             }
         }
@@ -77,18 +107,18 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num + 1].name)
             {
-                Debug.Log("Ã¼ÀÎ");
+                Debug.Log("Ã¼ï¿½ï¿½");
 
                 MovingSlot(2, num + 2);
-                //Ã¼ÀÎÄÚµå
+                //Ã¼ï¿½ï¿½ï¿½Úµï¿½
                 return;
             }
         }
 
-        Debug.Log("ÀÏ¹Ý");
+        Debug.Log("ï¿½Ï¹ï¿½");
 
         MovingSlot(1, num + 1);
-        //ÀÏ¹Ý½ºÅ³ÄÚµå
+        //ï¿½Ï¹Ý½ï¿½Å³ï¿½Úµï¿½
     }
 
     public IEnumerator SetCount()
@@ -98,20 +128,39 @@ public class SkillSlot : MonoBehaviour
         isSkilling = false;
     }
 
-    public void MakeSlotList()//½½·Ô¸®½ºÆ® Ã¤¿öÁÜ
+    public void MakeSlotList()//ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½Æ® Ã¤ï¿½ï¿½ï¿½ï¿½
     {
         slotList[0] = Instantiate(pikeGameObject, SlotCanvas.transform);
-        slotList[1] = Instantiate(pikeGameObject, SlotCanvas.transform);
-        slotList[2] = Instantiate(dualGameObject, SlotCanvas.transform);
-        slotList[3] = Instantiate(dualGameObject, SlotCanvas.transform);
-        slotList[4] = Instantiate(yedoGameObject, SlotCanvas.transform);
-        slotList[5] = Instantiate(yedoGameObject, SlotCanvas.transform);
-        slotList[6] = Instantiate(waldoGameObject, SlotCanvas.transform);
-        slotList[7] = Instantiate(waldoGameObject, SlotCanvas.transform);
-        slotList[8] = Instantiate(punchGameObject, SlotCanvas.transform);
-        slotList[9] = Instantiate(punchGameObject, SlotCanvas.transform);
+        slotList[0].GetComponent<SkillInclude>().index = 0;
 
-        for(int i = 0; i < 10; i++)
+        slotList[1] = Instantiate(pikeGameObject, SlotCanvas.transform);
+        slotList[1].GetComponent<SkillInclude>().index = 1;
+
+        slotList[2] = Instantiate(dualGameObject, SlotCanvas.transform);
+        slotList[2].GetComponent<SkillInclude>().index = 2;
+
+        slotList[3] = Instantiate(dualGameObject, SlotCanvas.transform);
+        slotList[3].GetComponent<SkillInclude>().index = 3;
+
+        slotList[4] = Instantiate(yedoGameObject, SlotCanvas.transform);
+        slotList[4].GetComponent<SkillInclude>().index = 4;
+
+        slotList[5] = Instantiate(yedoGameObject, SlotCanvas.transform);
+        slotList[5].GetComponent<SkillInclude>().index = 5;
+
+        slotList[6] = Instantiate(waldoGameObject, SlotCanvas.transform);
+        slotList[6].GetComponent<SkillInclude>().index = 6;
+
+        slotList[7] = Instantiate(waldoGameObject, SlotCanvas.transform);
+        slotList[7].GetComponent<SkillInclude>().index = 7;
+
+        slotList[8] = Instantiate(punchGameObject, SlotCanvas.transform);
+        slotList[8].GetComponent<SkillInclude>().index = 8;
+
+        slotList[9] = Instantiate(punchGameObject, SlotCanvas.transform);
+        slotList[9].GetComponent<SkillInclude>().index = 9;
+
+        for (int i = 0; i < 10; i++)
         {
             slotList[i].transform.parent = SlotCanvas.transform;
             slotList[i].transform.localPosition = slotPosition[7];
@@ -139,10 +188,10 @@ public class SkillSlot : MonoBehaviour
             list[random1] = list[random2];
             list[random2] = tmp;
         }
-    } //½½·Ô¸®½ºÆ® ¼¯¾îÁÜ
+    } //ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-    public void FirstMovingSlot() //Ã³À½ ½½·Ô ¾Ö´Ï¸ÞÀÌ¼Ç
+    public void FirstMovingSlot() //Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
     {
         Sequence firstSeq = DOTween.Sequence();
 
@@ -155,17 +204,19 @@ public class SkillSlot : MonoBehaviour
             .Append(slotList[6].transform.DOLocalMoveX(slotPosition[6].x, 0.18f));
     }
 
-    //¸¸¾à ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑÁö 0.2ÃÊ ³» ÇÑ¹ø ´õ È£Ãâ½Ã ¿¡·¯°¡ »ý°Ü¿ä
-    public void MovingSlot(int Minus, int current) //ÀÏ¹ÝÀÌ¸é 1 Ã¼ÀÎÀÌ¸é 2, ¸Ç Ã³À½À¸·Î ¿òÁ÷ÀÌ´Â ¹è¿­ÀÇ ¼ö //¸¶ÀÌ³Ê½º´Â 1 or 2  Ä¿·ºÆ®´Â 1 ~ 7 (¸¶ÀÌ³Ê½º°¡ 2ÀÏ¶§´Â 2 ~ 7)
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0.2ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½
+    public void MovingSlot(int Minus, int current) //ï¿½Ï¹ï¿½ï¿½Ì¸ï¿½ 1 Ã¼ï¿½ï¿½ï¿½Ì¸ï¿½ 2, ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ //ï¿½ï¿½ï¿½Ì³Ê½ï¿½ï¿½ï¿½ 1 or 2  Ä¿ï¿½ï¿½Æ®ï¿½ï¿½ 1 ~ 7 (ï¿½ï¿½ï¿½Ì³Ê½ï¿½ï¿½ï¿½ 2ï¿½Ï¶ï¿½ï¿½ï¿½ 2 ~ 7)
     {
         DOTween.CompleteAll();
-        if(Minus == 1)
+        if (Minus == 1)
         {
             GameObject temp;
             temp = slotList[current - 1];
 
-            //½½·Ô ¾Ö´Ï¸ÞÀÌ¼Ç
-            slotList[current - 1].GetComponent<Image>().DOFade(0, 0.2f).OnComplete(()=> { slotList[slotList.Count - 1].transform.DOLocalMove(slotPosition[7], 0);
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            slotList[current - 1].GetComponent<Image>().DOFade(0, 0.2f).OnComplete(() =>
+            {
+                slotList[slotList.Count - 1].transform.DOLocalMove(slotPosition[7], 0);
                 slotList[slotList.Count - 1].GetComponent<Image>().DOFade(1, 0);
             });
 
@@ -174,7 +225,7 @@ public class SkillSlot : MonoBehaviour
                 slotList[i].transform.DOLocalMoveX(slotPosition[i - 1].x, 0.2f);
             }
 
-            //½½·Ô ¸®½ºÆ® º¯°æ
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             for (int i = current; i < 10; i++)
             {
                 slotList[i - 1] = slotList[i];
@@ -194,7 +245,8 @@ public class SkillSlot : MonoBehaviour
                 slotList[slotList.Count - 1].GetComponent<Image>().DOFade(1, 0);
             });
 
-            slotList[current - 2].GetComponent<Image>().DOFade(0, 0.2f).OnComplete(() => {
+            slotList[current - 2].GetComponent<Image>().DOFade(0, 0.2f).OnComplete(() =>
+            {
                 slotList[slotList.Count - 3].transform.DOLocalMove(slotPosition[7], 0);
                 slotList[slotList.Count - 3].GetComponent<Image>().DOFade(1, 0);
             });
@@ -215,9 +267,9 @@ public class SkillSlot : MonoBehaviour
         }
         else
         {
-            Debug.LogError("¾ø´Â ¸¶ÀÌ³Ê½º");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì³Ê½ï¿½");
         }
-        
+
     }
 
-} 
+}
