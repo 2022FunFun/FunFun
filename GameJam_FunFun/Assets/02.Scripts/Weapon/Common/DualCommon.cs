@@ -18,10 +18,10 @@ public class DualCommon : MonoBehaviour
             transform.DOLocalMove(new Vector3(this.transform.position.x - 0.8f, transform.transform.position.y - 0.8f, 0), 0.4f).OnComplete(() => { End(); });
         }
 
-        if (this.transform.name == "Dual_1_2")
-        {
-            transform.DOLocalMove(new Vector3(this.transform.position.x + 0.8f, transform.transform.position.y - 0.8f, 0), 0.4f).OnComplete(() => { End(); });
-        }
+        //if (this.transform.name == "Dual_1_2")
+        //{
+        //    transform.DOLocalMove(new Vector3(this.transform.position.x + 0.8f, transform.transform.position.y - 0.8f, 0), 0.4f).OnComplete(() => { End(); });
+        //}
     }
 
     public void End()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142753237310507613}
   - component: {fileID: 4171778199678586272}
+  - component: {fileID: 6198557441996274431}
   m_Layer: 0
   m_Name: Waldo
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5980956985840872117}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3710809, w: 0.92860055}
+  m_LocalRotation: {x: 0, y: 0, z: -0.37108418, w: 0.92859924}
   m_LocalPosition: {x: 2.3, y: -3.29, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6198557441996274431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980956985840872117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319bc579388875645acef2f294910f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

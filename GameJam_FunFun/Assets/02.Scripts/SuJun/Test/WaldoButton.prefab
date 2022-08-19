@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81002df8d46cc6442a9977b803e949c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 6778779947201190165, guid: 2120f2cb7271dd648b2f8ffc1ddcda2e, type: 3}
+  commonWeapon: {fileID: 5980956985840872117, guid: 1b14596a271b3834b87054bd7628468e, type: 3}
+  chainWeapon: {fileID: 0}
 --- !u!61 &3867102303108563180
 BoxCollider2D:
   m_ObjectHideFlags: 0
