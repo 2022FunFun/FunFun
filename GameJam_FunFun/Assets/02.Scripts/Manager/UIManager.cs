@@ -42,4 +42,16 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Play");
     }
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void Stage01()
+    {
+        SceneManager.LoadScene("Stage01");
+    }
+    public void Stage02()
+    {
+        SceneManager.LoadScene("Stage02");
+    }
 }
