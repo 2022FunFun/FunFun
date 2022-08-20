@@ -22,33 +22,21 @@ public class YedoCommon : MonoBehaviour
 
     public IEnumerator Counting()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
         End();
     }
 
     public void End()
     {
         //StopAllCoroutines();
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            if (transform.parent.name != "YedoDefault")  
-            {
-                if (count == 1)
-                {
-                    Destroy(this.gameObject);
-                }
-                else
-                {
-                    count--;
-                }
-
-            }
-            Destroy(this);
+            Destroy(collision.gameObject);
         }
     }
 }

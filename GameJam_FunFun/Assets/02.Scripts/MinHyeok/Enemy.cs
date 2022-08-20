@@ -23,9 +23,6 @@ public class Enemy : MonoBehaviour
         chainstun = true;
     }
 
-
-   
-
     IEnumerator Move()
     {
         while(true)
