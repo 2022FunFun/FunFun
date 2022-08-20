@@ -71,8 +71,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 86dc4d8ab2c79ef4784f50d63fcde592, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81002df8d46cc6442a9977b803e949c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 6778779947201190165, guid: 2967e35297321d147a81a35e46bdbb4c, type: 3}
+  commonWeapon: {fileID: 4766478094139212768, guid: b79e0389bb4d0e5499ca7e9956894592, type: 3}
+  chainWeapon: {fileID: 1241349339728451932, guid: 3773989bbb1a81f45a5dc0e8e67c86d4, type: 3}
 --- !u!114 &-1544367083284802776
 MonoBehaviour:
   m_ObjectHideFlags: 0
