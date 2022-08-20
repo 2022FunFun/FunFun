@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5755668384102983826}
   - component: {fileID: 5755668384102983836}
   - component: {fileID: 5755668384102983827}
+  - component: {fileID: 6367053238923144779}
   m_Layer: 0
   m_Name: Dual_2_1
   m_TagString: Untagged
@@ -97,6 +98,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99677f8a278b014b86bd7b4a1a4e129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &6367053238923144779
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755668384102983825}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.6851251, y: 0.41383243}
+  - {x: -4.390932, y: -3.008484}
+  - {x: -4.7938356, y: -3.9082165}
+  - {x: -4.5866747, y: -4.0500083}
+  - {x: -0.27764297, y: -0.36027977}
+  - {x: 2.134949, y: 1.7726403}
+  - {x: 0.6119611, y: 2.1968737}
+  - {x: -1.7233589, y: 0.34879565}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &5755668385008887754
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +137,7 @@ GameObject:
   - component: {fileID: 5755668385008887755}
   - component: {fileID: 5755668385008887349}
   - component: {fileID: 5755668385008887348}
+  - component: {fileID: 6034735052193693926}
   m_Layer: 0
   m_Name: Dual_2_2
   m_TagString: Untagged
@@ -194,6 +224,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99677f8a278b014b86bd7b4a1a4e129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &6034735052193693926
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755668385008887754}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 2.7412908, y: -1.0438389}
+  - {x: -0.8155379, y: 1.7428569}
+  - {x: -3.0597293, y: 1.7556959}
+  - {x: 0.3387918, y: -0.33855408}
+  - {x: 0.726599, y: -0.93679833}
+  - {x: 3.164418, y: -3.2426102}
+  - {x: 4.6903424, y: -3.909357}
+  - {x: 2.740885, y: -1.0280094}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &5755668385713499591
 GameObject:
   m_ObjectHideFlags: 0
