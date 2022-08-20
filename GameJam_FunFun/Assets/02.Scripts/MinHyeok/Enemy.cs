@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
     private bool stun = false;
     private bool chainstun = false;
+
     private void OnEnable()
     {
         StartCoroutine("Move");
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour
         chainstun = true;
     }
 
+
+   
 
     IEnumerator Move()
     {

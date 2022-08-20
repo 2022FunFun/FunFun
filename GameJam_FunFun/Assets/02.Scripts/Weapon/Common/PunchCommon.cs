@@ -16,7 +16,7 @@ public class PunchCommon : MonoBehaviour
     {
         transform.position = new Vector3(0, -25, 0);
 
-        transform.DOMoveY(1.7f, 0.9f).OnComplete(() => { GameObject gameObject = 
+        transform.DOMoveY(1.7f, 0.3f).OnComplete(() => { GameObject gameObject = 
             Instantiate(effect, this.transform.position, Quaternion.identity);
             if(transform.name == "ChainPunch")
                 childStun.chainStun();

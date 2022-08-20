@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8400323147032286594}
   - component: {fileID: 734731619914773512}
   m_Layer: 0
-  m_Name: Yedo
+  m_Name: YedoDefault
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

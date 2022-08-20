@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class YedoCommon : MonoBehaviour
 {
+    int count = 2; 
     void OnEnable()
     {
         if(this.transform.parent == null)
@@ -27,12 +28,27 @@ public class YedoCommon : MonoBehaviour
 
     public void End()
     {
-        StopAllCoroutines();
-
+        //StopAllCoroutines();
+        Destroy(this);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.CompareTag("Enemy"))
+        {
+            if (transform.parent.name != "YedoDefault")  
+            {
+                if (count == 1)
+                {
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    count--;
+                }
+
+            }
+            Destroy(this);
+        }
     }
 }
