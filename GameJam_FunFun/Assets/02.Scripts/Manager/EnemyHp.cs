@@ -21,7 +21,18 @@ public class EnemyHp : MonoBehaviour, IDamageable
     public void OnDamage(Action lambda)
     {
         hp--;
+        if(hp <= 0)
+        {
+            StartCoroutine(flipAnimation());
+        }
         lambda?.Invoke();
+    }
+
+    public IEnumerator flipAnimation()
+    {
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 200);
+        yield return new WaitForSeconds(0.7f);
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
     }
 
     private void Update()
