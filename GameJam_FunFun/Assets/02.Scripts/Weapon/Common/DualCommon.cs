@@ -15,13 +15,11 @@ public class DualCommon : MonoBehaviour
     {
         if (this.transform.name == "Dual_1_1")
         {
-            Debug.Log(transform.position);
             transform.DOLocalMove(new Vector3(this.transform.localPosition.x - 2f, transform.transform.localPosition.y - 2f, 0), 0.7f).OnComplete(() => { End(); });
         }
 
         if (this.transform.name == "Dual_1_2")
         {
-            Debug.Log(transform.position);
             transform.DOLocalMove(new Vector3(this.transform.localPosition.x + 2f, transform.transform.localPosition.y - 2f, 0), 0.7f).OnComplete(() => { End(); });
         }
     }

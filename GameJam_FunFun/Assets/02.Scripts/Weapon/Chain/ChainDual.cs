@@ -20,7 +20,6 @@ public class ChainDual : MonoBehaviour
 
         if (this.transform.name == "Dual_2_2")
         {
-            Debug.Log(transform.position);
             transform.DOLocalMove(new Vector3(0.5f, -4, 0), 1f).OnComplete(() => { End(); });
         }
     }
