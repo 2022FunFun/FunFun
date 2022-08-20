@@ -5,16 +5,30 @@ using DG.Tweening;
 
 public class PikeCommon : MonoBehaviour
 {
-    public AudioSource audioSource;
-
+    void Awake()
+    {
+        transform.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        Debug.Log(transform.position);
+    }
     void OnEnable()
     {
-        transform.DOMoveY(10f, 1.5f).OnComplete(() => { End(); });
+        Invoke("Sibal", 0.0000001f);
+
+    }
+
+    public void Sibal()
+    {
+        transform.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        //transform.position = new Vector3(0, -15, 0);
+        Debug.Log("¿òÁ÷¿©");
+        transform.DOMove(new Vector3(transform.position.x, -15, 0), 0).OnComplete(() => { transform.DOMoveY(10, 1.5f); });
+        Invoke("End", 1.5f);
     }
 
     public void End()
     {
-        DOTween.Kill(this.gameObject);
-        PoolManager.Instance.Push(this.gameObject);
+        Debug.Log("Á×¾î");
+        //DOTween.Kill(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

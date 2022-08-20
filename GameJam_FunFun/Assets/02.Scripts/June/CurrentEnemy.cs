@@ -14,6 +14,6 @@ public class CurrentEnemy : MonoBehaviour
     }
     void Update()
     {
-        score.text = " "+(enemySpawner.leftenemy + enemySpawner.leftUFOenemy);
+        score.text = " x "+(enemySpawner.leftenemy + enemySpawner.leftUFOenemy);
     }
 }

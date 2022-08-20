@@ -32,7 +32,10 @@ using UnityEngine.EventSystems;
         
             if(other.gameObject.CompareTag("WeaponSpawner") && tagSpawn)
             {
+            
                 Collider2D newCol = other;
+            Debug.Log(gameObject);
+            Debug.Log(newCol);
                 SkillSlot.Instance.FindIndexer(this.gameObject, newCol);
 
             }

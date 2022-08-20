@@ -25,6 +25,11 @@ public class FirstManager : MonoBehaviour
     public GameObject Button2;
     public GameObject Button3;
 
+    void Awake()
+    {
+        //SetResolution();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && isSetting == true)
@@ -46,9 +51,9 @@ public class FirstManager : MonoBehaviour
         LeftButton.interactable = false;
         RightButton.interactable = false;
         count++;
-        Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x - 900, 0.75f);
-        Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x - 900, 0.75f);
-        Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x - 900, 0.75f).OnComplete(()=> {
+        Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x - 500, 0.75f);
+        Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x - 500, 0.75f);
+        Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x - 500, 0.75f).OnComplete(()=> {
             LeftButton.interactable = true;
             RightButton.interactable = true;
         });
@@ -60,9 +65,9 @@ public class FirstManager : MonoBehaviour
         LeftButton.interactable = false;
         RightButton.interactable = false;
         count--;
-        Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x + 900, 0.75f);
-        Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x + 900, 0.75f);
-        Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x + 900, 0.75f).OnComplete(() => {
+        Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x + 500, 0.75f);
+        Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x + 500, 0.75f);
+        Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x + 500, 0.75f).OnComplete(() => {
             LeftButton.interactable = true;
             RightButton.interactable = true;
         });
@@ -111,4 +116,14 @@ public class FirstManager : MonoBehaviour
     //    firstImage.DOFade(1, 2).OnComplete(()=> { firstImage.DOFade(0, 1f); });
     //    firstImage.raycastTarget = false;
     //}
+
+    public void SetResolution()
+    {
+        int setWidth = 540  ; // 화면 너비
+        int setHeight = 960; // 화면 높이
+
+        //해상도를 설정값에 따라 변경
+        //3번째 파라미터는 풀스크린 모드를 설정 > true : 풀스크린, false : 창모드
+        Screen.SetResolution(setWidth, setHeight, false);
+    }
 }

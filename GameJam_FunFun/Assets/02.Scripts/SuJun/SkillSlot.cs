@@ -82,6 +82,7 @@ public class SkillSlot : MonoBehaviour
     public void FindIndexer(GameObject gameObject, Collider2D col)
     {
         int index = slotList.FindIndex(a => a == gameObject);
+        Debug.Log(index);
         GetSlot(index, col, gameObject);
     }
 
@@ -93,8 +94,9 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num - 1].name)
             {
-                MovingSlot(2, num + 1);
                 gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
+                MovingSlot(2, num + 1);
+
                 return;
             }
         }
@@ -103,14 +105,15 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num + 1].name)
             {
-                MovingSlot(2, num + 2);
                 gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
+                MovingSlot(2, num + 2);
+
                 return;
             }
         }
-
-        MovingSlot(1, num + 1);
         gameObject.GetComponent<SpawnWeapon>().UseCard(col.transform.position);
+        MovingSlot(1, num + 1);
+
     }
 
     public IEnumerator SetCount()
