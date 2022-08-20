@@ -5,24 +5,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
-    private bool a = false;
+    private bool stun = false;
+    private bool chainstun = false;
     private void OnEnable()
     {
-        StopAllCoroutines();
-        StartCoroutine(Move());
+        StartCoroutine("Move");
     }
 
     public void stunCor()
     {
-        StopAllCoroutines();
-        StartCoroutine(stun());
+        stun = true;
     }
 
-    public IEnumerator stun()
+    public void chainstunCor()
     {
-        yield return new WaitForSeconds(1.5f);
-        StartCoroutine(Move());
+        chainstun = true;
     }
+
 
     IEnumerator Move()
     {
@@ -30,6 +29,21 @@ public class Enemy : MonoBehaviour
         {
             transform.Translate(Vector3.down*speed*Time.deltaTime);
             yield return null;
+            if(chainstun)
+            {
+                chainstun = false;
+                yield return new WaitForSeconds(3f);
+            }
+            if(stun)
+            {
+                stun = false;
+                yield return new WaitForSeconds(1.5f);
+            }
         }
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("Move");
     }
 }

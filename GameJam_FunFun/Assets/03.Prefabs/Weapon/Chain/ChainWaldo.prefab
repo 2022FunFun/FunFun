@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1284947775609028380}
   m_Layer: 0
   m_Name: ChainWaldo
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
