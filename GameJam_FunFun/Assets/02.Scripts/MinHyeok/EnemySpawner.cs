@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] int stage;
 
+    public GameObject sprite;
+
     void Awake()
     {
         if (stage == 0)
@@ -45,9 +47,22 @@ public class EnemySpawner : MonoBehaviour
     {
         if (leftenemy + leftUFOenemy <= 0)
         {
-            SceneManager.LoadScene("First");
+            StartCoroutine(Die());
+            
         }
     }
+
+    public IEnumerator Die()
+    {
+        sprite.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+        Destroy(gameObject);
+        SceneManager.LoadScene("First");
+    }
+
+
     IEnumerator Stage0Spawn()
     {
         leftenemy = 9;

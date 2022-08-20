@@ -8,6 +8,8 @@ public class PlayerHp : MonoBehaviour
 {
     [SerializeField] public float playerHp;
 
+    public GameObject sprite;
+
     public void OnDamage(Action lambda)
     {
         playerHp--;
@@ -26,7 +28,7 @@ public class PlayerHp : MonoBehaviour
         }
         if(playerHp <= 0)
         {
-            Die();
+            StartCoroutine( Die());
         }
 
     }
@@ -37,9 +39,20 @@ public class PlayerHp : MonoBehaviour
             OnDamage(() => { });
         }
     }
-    void Die()
+
+    public IEnumerator Die()
     {
+        sprite.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
         Destroy(gameObject);
+        LoadFirstScene();
+    }
+
+    public void LoadFirstScene()
+    {
+        Time.timeScale = 1;
         SceneManager.LoadScene("First");
     }
 }
