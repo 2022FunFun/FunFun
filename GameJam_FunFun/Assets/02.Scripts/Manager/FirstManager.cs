@@ -18,6 +18,9 @@ public class FirstManager : MonoBehaviour
     public Button LeftButton;
     public Button RightButton;
 
+
+    public GameObject leftbutton;
+    public GameObject rightbutton;
     public GameObject Button1;
     public GameObject Button2;
     public GameObject Button3;
@@ -26,7 +29,13 @@ public class FirstManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && isSetting == true)
         {
-            Setting.transform.DOLocalMoveX(-6, 0.5f).OnComplete(() => { isSetting = false; });
+            Setting.transform.DOLocalMoveX(-1200, 0.5f).OnComplete(() => {
+                Button1.SetActive(true);
+                Button2.SetActive(true);
+                Button3.SetActive(true);
+                leftbutton.SetActive(true);
+                rightbutton.SetActive(true);
+                isSetting = false; });
             
         }
     }
@@ -63,6 +72,11 @@ public class FirstManager : MonoBehaviour
     {
         isSetting = true;
         Setting.transform.DOLocalMoveX(0, 0.5f);
+        Button1.SetActive(false);
+        Button2.SetActive(false);
+        Button3.SetActive(false);
+        leftbutton.SetActive(false);
+        rightbutton.SetActive(false);
     }
 
     public void Quit()
