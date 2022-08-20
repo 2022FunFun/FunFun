@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PlayerHp : MonoBehaviour
@@ -16,6 +17,12 @@ public class PlayerHp : MonoBehaviour
     {
         switch(playerHp)
         {
+            case 4:
+                transform.GetChild(4).gameObject.SetActive(false);
+                break;
+            case 3:
+                transform.GetChild(3).gameObject.SetActive(false);
+                break;
             case 2:
                 transform.GetChild(2).gameObject.SetActive(false);
                 break;
@@ -39,5 +46,6 @@ public class PlayerHp : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("First");
     }
 }

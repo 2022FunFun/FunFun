@@ -14,16 +14,22 @@ public class PunchCommon : MonoBehaviour
     }
     void OnEnable()
     {
-        transform.position = new Vector3(0, -25, 0);
+        //transform.position = new Vector3(0, -25, 0);
 
-        transform.DOMoveY(1.7f, 0.3f).OnComplete(() => { GameObject gameObject = 
-            Instantiate(effect, this.transform.position, Quaternion.identity);
-            GetComponent<CameraShake>()?.Shake();
-            if(transform.name == "ChainPunch")
-                childStun.chainStun();
-            else if(transform.name == "Punch")
-                childStun.commonStun();
-            Destroy(gameObject, 0.6f); End(); });
+        transform.DOMove(new Vector3(transform.position.x, -5, 0), 0).OnComplete(() =>
+        {
+            transform.DOMoveY(1.7f, 0.3f).OnComplete(() =>
+            {
+                GameObject gameObject =
+Instantiate(effect, this.transform.position, Quaternion.identity);
+                GetComponent<CameraShake>()?.Shake();
+                if (transform.name == "ChainPunch")
+                    childStun.chainStun();
+                else if (transform.name == "Punch")
+                    childStun.commonStun();
+                Destroy(gameObject, 0.6f); End();
+            });
+        }); 
     }
 
     public void End()

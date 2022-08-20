@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
     private int randomSpawn;
     private float delay = 0f;
 
+    private bool check1 = true;
+    private bool check2 = true;
+
     [SerializeField] int stage;
 
     void Start()
@@ -30,14 +34,17 @@ public class EnemySpawner : MonoBehaviour
         
         if(stage == 3)
         StartCoroutine(Stage3Spawn());
+
+        check1 = true;
+        check2 = true;
     }
 
     IEnumerator Stage1Spawn()
     {
         yield return new WaitForSeconds(1.5f);
-        delay = 4f;
-        leftenemy = 40;
-        leftUFOenemy = 7;
+        delay = 2f;
+        leftenemy = 20;
+        leftUFOenemy = 6;
 
         totalEnemy = leftenemy + leftUFOenemy;
         while (true)
@@ -172,15 +179,20 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
             if (leftenemy + leftUFOenemy < 40)
-                delay = 3.5f;
+                delay = 1.8f;
             if (leftenemy + leftUFOenemy < 30)
-                delay = 3f;
+                delay = 1.6f;
             if (leftenemy + leftUFOenemy < 20)
-                delay = 2.5f;
+                delay = 1.4f;
             if (leftenemy + leftUFOenemy < 15)
-                delay = 2f;
+                delay = 1.2f;
             if (leftenemy + leftUFOenemy < 10)
-                delay = 1.5f;
+                delay = 1f;
+
+            if (leftenemy + leftUFOenemy <= 0)
+            {
+                SceneManager.LoadScene("First");
+            }
             yield return new WaitForSeconds(delay);
         }
     }
@@ -188,7 +200,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator Stage2Spawn()
     {
         yield return new WaitForSeconds(1.5f);
-        delay = 4f;
+        delay = 2.8f;
         leftenemy = 43;
         leftUFOenemy = 10;
 
@@ -325,25 +337,30 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
             if (leftenemy + leftUFOenemy < 50)
-                delay = 3.5f;
+                delay = 2.6f;
             if (leftenemy + leftUFOenemy < 40)
-                delay = 3f;
+                delay = 2.4f;
             if (leftenemy + leftUFOenemy < 30)
-                delay = 2.5f;
+                delay = 2.2f;
             if (leftenemy + leftUFOenemy < 20)
                 delay = 2f;
             if (leftenemy + leftUFOenemy < 15)
-                delay = 1.5f;
+                delay = 1.8f;
             if (leftenemy + leftUFOenemy < 10)
-                delay = 1f;
-            yield return new WaitForSeconds(delay);
+                delay = 1.5f;
+
+            if (leftenemy + leftUFOenemy <= 0)
+            {
+                SceneManager.LoadScene("First");
+            }
+            yield return new WaitForSeconds(Random.Range(delay-1,delay));
         }
     }
 
     IEnumerator Stage3Spawn()
     {
         yield return new WaitForSeconds(1.5f);
-        delay = 4f;
+        delay = 2f;
         leftenemy = 50;
         leftUFOenemy = 12;
 
@@ -480,20 +497,57 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
             if (leftenemy + leftUFOenemy < 55)
-                delay = 3.5f;
+                delay = 1.9f;
             if (leftenemy + leftUFOenemy < 50)
-                delay = 3f;
+            {
+                delay = 1.8f;
+                if(check1)
+                {
+                    GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+                    obj.transform.SetParent(enemyParent);
+                    GameObject obj1 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1, transform.position.y), Quaternion.identity);
+                    obj1.transform.SetParent(enemyParent);
+                    GameObject obj2 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 1, transform.position.y), Quaternion.identity);
+                    obj2.transform.SetParent(enemyParent);
+                    GameObject obj3 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 2, transform.position.y), Quaternion.identity);
+                    obj3.transform.SetParent(enemyParent);
+                    GameObject obj4 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 2, transform.position.y), Quaternion.identity);
+                    obj4.transform.SetParent(enemyParent);
+                    check1 = false;
+                }
+            }
             if (leftenemy + leftUFOenemy < 40)
-                delay = 2.5f;
+                delay = 1.6f;
             if (leftenemy + leftUFOenemy < 30)
-                delay = 2f;
-            if (leftenemy + leftUFOenemy < 20)
+            {
                 delay = 1.5f;
+                if(check2)
+                {
+                    GameObject obj = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+                    obj.transform.SetParent(enemyParent);
+                    GameObject obj1 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 1, transform.position.y), Quaternion.identity);
+                    obj1.transform.SetParent(enemyParent);
+                    GameObject obj2 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 2, transform.position.y), Quaternion.identity);
+                    obj2.transform.SetParent(enemyParent);
+                    GameObject obj3 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 1, transform.position.y), Quaternion.identity);
+                    obj3.transform.SetParent(enemyParent);
+                    GameObject obj4 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 2, transform.position.y), Quaternion.identity);
+                    obj4.transform.SetParent(enemyParent);
+                    check2 = false;
+                }
+            }
+            if (leftenemy + leftUFOenemy < 20)
+                delay = 1.3f;
             if (leftenemy + leftUFOenemy < 15)
-                delay = 1f;
+                delay = 1.2f;
             if (leftenemy + leftUFOenemy < 10)
-                delay = 0.5f;
-            yield return new WaitForSeconds(delay);
+                delay = 1f;
+
+            if (leftenemy + leftUFOenemy <= 0)
+            {
+                SceneManager.LoadScene("First");
+            }
+            yield return new WaitForSeconds(Random.Range(delay - 1, delay));
         }
     }
 

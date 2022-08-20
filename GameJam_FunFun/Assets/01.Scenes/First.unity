@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1731012094}
         m_TargetAssemblyTypeName: FirstManager, Assembly-CSharp
-        m_MethodName: loadStage1
+        m_MethodName: loadStage3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -608,7 +608,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1731012094}
         m_TargetAssemblyTypeName: FirstManager, Assembly-CSharp
-        m_MethodName: loadStage1
+        m_MethodName: loadStage2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
