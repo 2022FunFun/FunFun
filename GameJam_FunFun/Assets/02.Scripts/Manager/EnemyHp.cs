@@ -18,7 +18,6 @@ public class EnemyHp : MonoBehaviour, IDamageable
         {
             Die();//여기에 죽는 애니메이션
         }
-        StartCoroutine("tlqkf");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +28,6 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     void Die()
     {
-        Destroy(gameObject);//나중에 풀메니저로
+        PoolManager.Instance.gameObject.SetActive(false);
     }
 }

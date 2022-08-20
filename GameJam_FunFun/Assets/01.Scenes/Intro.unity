@@ -631,6 +631,8 @@ MonoBehaviour:
   optionButton: {fileID: 0}
   exitButton: {fileID: 0}
   optionMenu: {fileID: 1226378261}
+  textDuration: 1.5
+  iconScaleDuration: 0.5
   exitMenu: {fileID: 0}
   musicSource: {fileID: 1582003289}
   effectSource: {fileID: 1744927626}
