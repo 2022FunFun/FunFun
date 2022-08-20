@@ -2,185 +2,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : StageEnum
+public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] float minSpawnTime;
+    [SerializeField] float maxSpawnTime;
     [SerializeField] GameObject enemyPrefab;
-    public int leftenemy = 0;
     [SerializeField] GameObject UFOenemyPrefab;
-    public int leftUFOenemy = 0;
-
-    public int totalEnemy = 0;
-
     [SerializeField] Transform enemyTransform;
-
+    
     public Transform enemyParent;
     private int random;
-    private int randomSpawn;
-    private float delay = 0f;
 
     void Start()
     {
-        StartCoroutine(Stage1Spawn());
+        StartCoroutine(RandomSpawn());
     }
 
-    IEnumerator Stage1Spawn()
+    void Update()
     {
-        delay = 3.5f;
-        leftenemy = 40;
-        leftUFOenemy = 7;
 
-        totalEnemy = leftenemy + leftUFOenemy;
+    }
+
+
+    IEnumerator RandomSpawn()
+    {
         while (true)
         {
             random = Random.Range(0, 5);
             switch (random)
             {
                 case 0:
-                    randomSpawn = Random.Range(0, 5);
-                    if (randomSpawn == 0)
-                    {
-                        if (leftUFOenemy <= 0)
-                        {
-                            GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
-                            obj.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
-                        objU.transform.SetParent(enemyParent);
-                    }
-                    else
-                    {
-                        if (leftenemy <= 0)
-                        {
-                            GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
-                            objU.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
-                        obj.transform.SetParent(enemyParent);
-                    }
+                    GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
+                    obj.transform.SetParent(enemyParent);
+                    GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 1f, transform.position.y), Quaternion.identity);
+                    objU.transform.SetParent(enemyParent);
                     break;
                 case 1:
-                    randomSpawn = Random.Range(0, 5);
-                    if (randomSpawn == 0)
-                    {
-                        if (leftUFOenemy <= 0)
-                        {
-                            GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
-                            obj.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
-                        objU.transform.SetParent(enemyParent);
-                    }
-                    else
-                    {
-                        if (leftenemy <= 0)
-                        {
-                            GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
-                            objU.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
-                        obj.transform.SetParent(enemyParent);
-                    }
+                    GameObject obj1 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
+                    obj1.transform.SetParent(enemyParent);
+                    GameObject objU1 =PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
+                    objU1.transform.SetParent(enemyParent);
                     break;
                 case 2:
-                    randomSpawn = Random.Range(0, 5);
-                    if (randomSpawn == 0)
-                    {
-                        if (leftUFOenemy <= 0)
-                        {
-                            GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
-                            obj.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
-                        objU.transform.SetParent(enemyParent);
-                    }
-                    else
-                    {
-                        if (leftenemy <= 0)
-                        {
-                            GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
-                            objU.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 2f, transform.position.y), Quaternion.identity);
-                        obj.transform.SetParent(enemyParent);
-                    }
+                    GameObject obj2 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+                    obj2.transform.SetParent(enemyParent);
+                    GameObject objU2 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+                    objU2.transform.SetParent(enemyParent);
                     break;
                 case 3:
-                    randomSpawn = Random.Range(0, 5);
-                    if (randomSpawn == 0)
-                    {
-                        if (leftUFOenemy <= 0)
-                        {
-                            GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
-                            obj.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
-                        objU.transform.SetParent(enemyParent);
-                    }
-                    else
-                    {
-                        if (leftenemy <= 0)
-                        {
-                            GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
-                            objU.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
-                        obj.transform.SetParent(enemyParent);
-                    }
+                    GameObject obj3 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
+                    obj3.transform.SetParent(enemyParent);
+                    GameObject objU3 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 1f, transform.position.y), Quaternion.identity);
+                    objU3.transform.SetParent(enemyParent);
                     break;
                 case 4:
-                    randomSpawn = Random.Range(0, 5);
-                    if (randomSpawn == 0)
-                    {
-                        if (leftUFOenemy <= 0)
-                        {
-                            GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
-                            obj.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
-                        objU.transform.SetParent(enemyParent);
-                    }
-                    else
-                    {
-                        if (leftenemy <= 0)
-                        {
-                            GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
-                            objU.transform.SetParent(enemyParent);
-                            break;
-                        }
-                        GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
-                        obj.transform.SetParent(enemyParent);
-                    }
+                    GameObject obj4 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
+                    obj4.transform.SetParent(enemyParent);
+                    GameObject objU4 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 2f, transform.position.y), Quaternion.identity);
+                    objU4.transform.SetParent(enemyParent);
+                    break;
+                case 5:
+                    GameObject obj5 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1.5f, transform.position.y), Quaternion.identity);
+                    obj5.transform.SetParent(enemyParent);
+                    GameObject objU5 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x + 1.5f, transform.position.y), Quaternion.identity);
+                    objU5.transform.SetParent(enemyParent);
                     break;
             }
-            if (leftenemy + leftUFOenemy < 40)
-                delay = 3f;
-            if (leftenemy + leftUFOenemy < 30)
-                delay = 2.5f;
-            if (leftenemy + leftUFOenemy < 20)
-                delay = 2f;
-            if (leftenemy + leftUFOenemy < 15)
-                delay = 1.5f;
-            if (leftenemy + leftUFOenemy < 10)
-                delay = 1f;
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
-    }
-
-    public void MinusEnemy()
-    {
-        leftenemy--;
-    }
-    public void MinusUFOEnemy()
-    {
-        leftUFOenemy--;
     }
 }

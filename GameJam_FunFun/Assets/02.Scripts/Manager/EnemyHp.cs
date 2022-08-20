@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using System;
 using Random = UnityEngine.Random;
 
@@ -10,11 +9,8 @@ public class EnemyHp : MonoBehaviour, IDamageable
     [SerializeField]public float hp;
     private float startHp = 0;
     public GameObject effect;
-
-    EnemySpawner enemySpawner;
     private void Awake()
     {
-        enemySpawner = GameObject.Find("EnemySpawner1").GetComponent<EnemySpawner>();
         startHp = hp;
     }
     
@@ -55,11 +51,6 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     void Die()
     {
-        if(this.name == "Enemy")
-            EMinus();
-        else
-            UFOMinus();
-            
         int random = Random.Range(0, 2);
         if (random == 0)
         {
@@ -71,16 +62,6 @@ public class EnemyHp : MonoBehaviour, IDamageable
             GameObject effects = Instantiate(effect, this.transform.position, Quaternion.Euler(0, 180, 0));
             Destroy(effects, 0.3f);
         }
-        
         PoolManager.Instance.Push(this.gameObject);
-    }
-
-    public void EMinus()
-    {
-        enemySpawner.MinusEnemy();
-    }
-    public void UFOMinus()
-    {
-        enemySpawner.MinusUFOEnemy();
     }
 }
