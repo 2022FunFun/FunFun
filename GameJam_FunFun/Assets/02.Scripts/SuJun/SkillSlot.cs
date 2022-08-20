@@ -93,8 +93,6 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num - 1].name)
             {
-                Debug.Log("ü��");
-
                 MovingSlot(2, num + 1);
                 gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
                 return;
@@ -105,18 +103,13 @@ public class SkillSlot : MonoBehaviour
         {
             if (slotList[num].name == slotList[num + 1].name)
             {
-                Debug.Log("ü��");
-
                 MovingSlot(2, num + 2);
                 gameObject.GetComponent<SpawnWeapon>().UseChainCard(col.transform.position);
                 return;
             }
         }
 
-        Debug.Log("�Ϲ�");
-
         MovingSlot(1, num + 1);
-        Debug.Log(col.transform.position);
         gameObject.GetComponent<SpawnWeapon>().UseCard(col.transform.position);
     }
 
