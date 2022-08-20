@@ -450,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7574980297237822920, guid: f1087313e047ea043b8e194d3b78ad89, type: 3}
+  - {fileID: 9097328869892751210, guid: d583bd3d1a410db40b9ca198a41f5944, type: 3}
 --- !u!4 &758754226
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +542,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279233904}
   m_CullTransparentMesh: 1
+--- !u!1 &1410557753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410557754}
+  - component: {fileID: 1410557755}
+  m_Layer: 0
+  m_Name: EnemyParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410557754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410557753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.734535, y: 1.2462589, z: 0.019437503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410557755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410557753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70eb6677a63b2f54eab889ddbfafb25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1565149807
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +635,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7574980297237822920, guid: f1087313e047ea043b8e194d3b78ad89, type: 3}
   UFOenemyPrefab: {fileID: 9097328869892751210, guid: d583bd3d1a410db40b9ca198a41f5944, type: 3}
   enemyTransform: {fileID: 1565149808}
+  enemyParent: {fileID: 1410557754}
 --- !u!1 &1567112950
 GameObject:
   m_ObjectHideFlags: 0
