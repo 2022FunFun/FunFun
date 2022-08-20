@@ -36,10 +36,6 @@ public class YedoCommon : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            if(collision.name == "Enemy")
-                collision.gameObject.GetComponent<EnemyHp>().EMinus();
-            else
-                collision.gameObject.GetComponent<EnemyHp>().UFOMinus();
             Destroy(collision.gameObject);
         }
     }
