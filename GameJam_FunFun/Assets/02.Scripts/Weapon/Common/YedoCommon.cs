@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class YedoCommon : MonoBehaviour
 {
+    int count = 2; 
     void OnEnable()
     {
         if(this.transform.parent == null)
@@ -21,18 +22,21 @@ public class YedoCommon : MonoBehaviour
 
     public IEnumerator Counting()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
         End();
     }
 
     public void End()
     {
-        StopAllCoroutines();
-        PoolManager.Instance.Push(this.gameObject);
+        //StopAllCoroutines();
+        Destroy(this.gameObject);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        End();
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

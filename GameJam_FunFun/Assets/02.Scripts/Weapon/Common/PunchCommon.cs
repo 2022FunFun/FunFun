@@ -6,14 +6,22 @@ using DG.Tweening;
 public class PunchCommon : MonoBehaviour
 {
     public GameObject effect;
+    ChildStun childStun;
 
+    private void Awake()
+    {
+        childStun = GameObject.Find("EnemyParent").GetComponent<ChildStun>();
+    }
     void OnEnable()
     {
         transform.position = new Vector3(0, -25, 0);
 
-        transform.DOMoveY(1.7f, 0.9f).OnComplete(() => { GameObject gameObject = 
+        transform.DOMoveY(1.7f, 0.3f).OnComplete(() => { GameObject gameObject = 
             Instantiate(effect, this.transform.position, Quaternion.identity);
-            // 기절함수
+            if(transform.name == "ChainPunch")
+                childStun.chainStun();
+            else if(transform.name == "Punch")
+                childStun.commonStun();
             Destroy(gameObject, 0.6f); End(); });
     }
 

@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] public float playerHp;
-    [SerializeField] private Slider sliderHp;
 
-    private void Awake()
-    {
-        sliderHp = GetComponent<Slider>();
-    }
     public void OnDamage(Action lambda)
     {
         playerHp--;
@@ -20,11 +14,20 @@ public class PlayerHp : MonoBehaviour
     }
     private void Update()
     {
+        switch(playerHp)
+        {
+            case 2:
+                transform.GetChild(2).gameObject.SetActive(false);
+                break;
+            case 1:
+                transform.GetChild(1).gameObject.SetActive(false);
+                break;
+        }
         if(playerHp <= 0)
         {
             Die();
         }
-        sliderHp.value = playerHp;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

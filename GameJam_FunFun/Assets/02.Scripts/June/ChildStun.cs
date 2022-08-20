@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ChildStun : MonoBehaviour
 {
-    void Start()
+    public void commonStun()
     {
-        
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<Enemy>().stunCor();
+        }
     }
 
-    void Update()
+    public void chainStun()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        for(int i = 0; i < transform.childCount; i++)
         {
-            for(int i = 0; i < transform.childCount; i++)
-            {
-                transform.GetChild(i).GetComponent<Enemy>().stunCor();
-            }
+            transform.GetChild(i).GetComponent<Enemy>().chainstunCor();
         }
     }
 }
