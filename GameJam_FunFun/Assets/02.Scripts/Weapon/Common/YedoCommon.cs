@@ -28,11 +28,11 @@ public class YedoCommon : MonoBehaviour
     public void End()
     {
         StopAllCoroutines();
-        PoolManager.Instance.Push(this.gameObject);
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        End();
+        
     }
 }
