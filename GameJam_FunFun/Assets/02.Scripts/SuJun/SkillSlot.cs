@@ -99,7 +99,7 @@ public class SkillSlot : MonoBehaviour
             }
         }
 
-        if (num != 7)
+        if (num != 6)
         {
             if (slotList[num].name == slotList[num + 1].name)
             {

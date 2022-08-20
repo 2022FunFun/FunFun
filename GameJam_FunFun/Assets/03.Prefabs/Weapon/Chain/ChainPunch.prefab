@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8690152814340208154}
   - component: {fileID: 8549115689937673245}
   - component: {fileID: 8142390623007229772}
+  - component: {fileID: -3921151074930768286}
   m_Layer: 0
   m_Name: ChainPunch
   m_TagString: Weapon
@@ -98,3 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 1673744123703261638, guid: d33dce0033a459f4885bd6cb306844d9, type: 3}
+--- !u!114 &-3921151074930768286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241349339728451932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb7ad5eb6e704cb5fb07f7fb37cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  shakeRange: 0.05
+  duration: 0.5

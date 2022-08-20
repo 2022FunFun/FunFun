@@ -1559,7 +1559,7 @@ MonoBehaviour:
   totalEnemy: 0
   enemyTransform: {fileID: 1446562538}
   enemyParent: {fileID: 1072501936}
-  stage: 1
+  stage: 3
 --- !u!1 &1455334436
 GameObject:
   m_ObjectHideFlags: 0

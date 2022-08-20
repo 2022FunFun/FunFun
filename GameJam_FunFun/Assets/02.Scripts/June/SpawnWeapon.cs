@@ -9,11 +9,15 @@ public class SpawnWeapon : MonoBehaviour
     
     public void UseCard(Vector3 pos)
     {
+        Debug.Log("일반스킬");
+
         PoolManager.Instance.Pop(commonWeapon,pos, commonWeapon.transform.rotation);
     }
 
     public void UseChainCard(Vector3 pos)
     {
+        Debug.Log("체인스킬");
+
         PoolManager.Instance.Pop(chainWeapon, pos, commonWeapon.transform.rotation);
     }
 }

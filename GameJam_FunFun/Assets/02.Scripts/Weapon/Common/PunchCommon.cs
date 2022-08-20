@@ -18,6 +18,7 @@ public class PunchCommon : MonoBehaviour
 
         transform.DOMoveY(1.7f, 0.3f).OnComplete(() => { GameObject gameObject = 
             Instantiate(effect, this.transform.position, Quaternion.identity);
+            GetComponent<CameraShake>()?.Shake();
             if(transform.name == "ChainPunch")
                 childStun.chainStun();
             else if(transform.name == "Punch")

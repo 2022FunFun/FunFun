@@ -9,19 +9,22 @@ public class EnemyHp : MonoBehaviour, IDamageable
     [SerializeField]public float hp;
     private float startHp = 0;
     public GameObject effect;
+    EnemySpawner enemySpawner;
     private void Awake()
     {
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         startHp = hp;
     }
     
     private void OnEnable()
     {
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         hp = startHp;
     }
     public void OnDamage(Action lambda)
     {
         hp--;
-        if(hp <= 0)
+        if(hp >= 0)
         {
             StartCoroutine(flipAnimation());
         }
@@ -30,8 +33,9 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     public IEnumerator flipAnimation()
     {
-        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 200);
-        yield return new WaitForSeconds(0.7f);
+        Debug.Log("플립코루틴");
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 100);
+        yield return new WaitForSeconds(0.4f);
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
     }
 
@@ -51,6 +55,10 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     void Die()
     {
+        if (this.name == "Enemy")
+            EMinus();
+        else
+            UFOMinus();
         int random = Random.Range(0, 2);
         if (random == 0)
         {
@@ -62,6 +70,17 @@ public class EnemyHp : MonoBehaviour, IDamageable
             GameObject effects = Instantiate(effect, this.transform.position, Quaternion.Euler(0, 180, 0));
             Destroy(effects, 0.3f);
         }
+        StopAllCoroutines();
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         PoolManager.Instance.Push(this.gameObject);
+    }
+    
+    public void EMinus()
+    {
+        enemySpawner.MinusEnemy();
+    }
+    public void UFOMinus()
+    {
+        enemySpawner.MinusUFOEnemy();
     }
 }
