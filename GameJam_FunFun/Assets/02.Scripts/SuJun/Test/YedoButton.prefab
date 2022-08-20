@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonWeapon: {fileID: 1293757346520395047, guid: bb1f0c17a2efe53499aa03ca35e38538, type: 3}
-  chainWeapon: {fileID: 0}
+  chainWeapon: {fileID: 2163892689983033623, guid: ddb8dccf439b89249bd19f2e02086215, type: 3}
 --- !u!114 &7592166989683439863
 MonoBehaviour:
   m_ObjectHideFlags: 0

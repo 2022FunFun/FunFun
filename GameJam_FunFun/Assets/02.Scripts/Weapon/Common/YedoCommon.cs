@@ -7,7 +7,14 @@ public class YedoCommon : MonoBehaviour
 {
     void OnEnable()
     {
-        transform.DOLocalMoveY(-1.7f, 0);
+        if(this.transform.parent == null)
+        {
+            transform.DOLocalMoveY(-1.7f, 0);
+        }
+        else
+        {
+            transform.DOLocalMoveY(1.4f, 0);
+        }
         StartCoroutine((Counting()));
 
     }

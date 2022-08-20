@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonWeapon: {fileID: 5980956985840872117, guid: 1b14596a271b3834b87054bd7628468e, type: 3}
-  chainWeapon: {fileID: 0}
+  chainWeapon: {fileID: 506024167925697107, guid: 5384b3cb710664343b1948c87ac40fa7, type: 3}
 --- !u!61 &3867102303108563180
 BoxCollider2D:
   m_ObjectHideFlags: 0
