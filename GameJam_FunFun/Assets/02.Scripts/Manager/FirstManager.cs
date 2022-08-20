@@ -24,6 +24,7 @@ public class FirstManager : MonoBehaviour
     public GameObject Button1;
     public GameObject Button2;
     public GameObject Button3;
+    public GameObject Button0;
 
     void Awake()
     {
@@ -35,6 +36,7 @@ public class FirstManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && isSetting == true)
         {
             Setting.transform.DOLocalMoveX(-1200, 0.5f).OnComplete(() => {
+                Button0.SetActive(true);
                 Button1.SetActive(true);
                 Button2.SetActive(true);
                 Button3.SetActive(true);
@@ -47,10 +49,11 @@ public class FirstManager : MonoBehaviour
 
     public void RightMoving()
     {
-        if(count == 3) { return; }
+        if(count == 4) { return; }
         LeftButton.interactable = false;
         RightButton.interactable = false;
         count++;
+        Button0.transform.DOLocalMoveX(Button0.transform.localPosition.x - 500, 0.75f);
         Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x - 500, 0.75f);
         Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x - 500, 0.75f);
         Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x - 500, 0.75f).OnComplete(()=> {
@@ -65,6 +68,7 @@ public class FirstManager : MonoBehaviour
         LeftButton.interactable = false;
         RightButton.interactable = false;
         count--;
+        Button0.transform.DOLocalMoveX(Button0.transform.localPosition.x + 500, 0.75f);
         Button1.transform.DOLocalMoveX(Button1.transform.localPosition.x + 500, 0.75f);
         Button2.transform.DOLocalMoveX(Button2.transform.localPosition.x + 500, 0.75f);
         Button3.transform.DOLocalMoveX(Button3.transform.localPosition.x + 500, 0.75f).OnComplete(() => {
@@ -77,6 +81,7 @@ public class FirstManager : MonoBehaviour
     {
         isSetting = true;
         Setting.transform.DOLocalMoveX(0, 0.5f);
+        Button0.SetActive(false);
         Button1.SetActive(false);
         Button2.SetActive(false);
         Button3.SetActive(false);
@@ -109,6 +114,12 @@ public class FirstManager : MonoBehaviour
     {
         SceneManager.LoadScene("Stage03");
     }
+
+    public void loadStage0()
+    {
+        SceneManager.LoadScene("Stage00");
+    }
+
 
     //public void firstImageDirection()
     //{

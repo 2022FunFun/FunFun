@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81002df8d46cc6442a9977b803e949c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commonWeapon: {fileID: 1456162237970215434, guid: 1b76b2e229d185b419e658f4648a7f1b, type: 3}
+  commonWeapon: {fileID: 6243423984219111045, guid: 7408e69db91a81a4790ed856edbd9d81, type: 3}
   chainWeapon: {fileID: 2129729511373201558, guid: 2db600ecc02a1e546a33a7f2312351e9, type: 3}
 --- !u!114 &4487852448479771005
 MonoBehaviour:

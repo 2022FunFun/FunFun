@@ -24,8 +24,10 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] int stage;
 
-    void Start()
+    void Awake()
     {
+        if (stage == 0)
+            StartCoroutine(Stage0Spawn());
         if(stage == 1)
         StartCoroutine(Stage1Spawn());
 
@@ -39,12 +41,56 @@ public class EnemySpawner : MonoBehaviour
         check2 = true;
     }
 
+    void Update()
+    {
+        if (leftenemy + leftUFOenemy <= 0)
+        {
+            SceneManager.LoadScene("First");
+        }
+    }
+    IEnumerator Stage0Spawn()
+    {
+        leftenemy = 9;
+        leftUFOenemy = 1;
+        yield return new WaitForSeconds(3f);
+        while (leftenemy > 0)
+        {
+            random = Random.Range(0, 5);
+            switch (random)
+            {
+                case 0:
+                    GameObject obj0 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+                    obj0.transform.SetParent(enemyParent);
+                    break;
+                case 1:
+                    GameObject obj1 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 1, transform.position.y), Quaternion.identity);
+                    obj1.transform.SetParent(enemyParent);
+                    break;
+                case 2:
+                    GameObject obj2 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x + 2, transform.position.y), Quaternion.identity);
+                    obj2.transform.SetParent(enemyParent);
+                    break;
+                case 3:
+                    GameObject obj3 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 1, transform.position.y), Quaternion.identity);
+                    obj3.transform.SetParent(enemyParent);
+                    break;
+                case 4:
+                    GameObject obj4 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.localPosition.x - 2, transform.position.y), Quaternion.identity);
+                    obj4.transform.SetParent(enemyParent);
+                    break;
+            }
+            yield return new WaitForSeconds(4f);
+        }
+        GameObject obj = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+        obj.transform.SetParent(enemyParent);
+        yield return null;
+    }
     IEnumerator Stage1Spawn()
     {
-        yield return new WaitForSeconds(1.5f);
         delay = 2f;
         leftenemy = 20;
         leftUFOenemy = 6;
+        yield return new WaitForSeconds(1.5f);
 
         totalEnemy = leftenemy + leftUFOenemy;
         while (true)
@@ -199,10 +245,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator Stage2Spawn()
     {
-        yield return new WaitForSeconds(1.5f);
         delay = 2.8f;
         leftenemy = 43;
         leftUFOenemy = 10;
+        yield return new WaitForSeconds(1.5f);
 
         totalEnemy = leftenemy + leftUFOenemy;
         while (true)
@@ -359,10 +405,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator Stage3Spawn()
     {
-        yield return new WaitForSeconds(1.5f);
         delay = 2f;
-        leftenemy = 50;
-        leftUFOenemy = 12;
+        leftenemy = 46;
+        leftUFOenemy = 20;
+        yield return new WaitForSeconds(1.5f);
 
         totalEnemy = leftenemy + leftUFOenemy;
         while (true)
