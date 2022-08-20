@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9006077115925773211}
   - component: {fileID: 1066185378693936286}
   - component: {fileID: 7331815761560462297}
+  - component: {fileID: 1593387468714432639}
   m_Layer: 0
   m_Name: Dual_1_1
   m_TagString: Untagged
@@ -130,6 +131,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed1ce92ede353641840937fc5f383ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &1593387468714432639
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697987718305498224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.5443175, y: -2.0720618}
+  - {x: -2.4977129, y: -1.5347091}
+  - {x: -1.6024265, y: -0.095654}
+  - {x: 1.5581833, y: 1.8520187}
+  - {x: 2.0606804, y: 1.27099}
+  - {x: -1.567424, y: -2.048205}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &4233307950393153643
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +168,7 @@ GameObject:
   - component: {fileID: 8907311487267991835}
   - component: {fileID: 719596815677145641}
   - component: {fileID: 5907371675259454896}
+  - component: {fileID: 7085191179080406885}
   m_Layer: 0
   m_Name: Dual_1_2
   m_TagString: Untagged
@@ -227,3 +255,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed1ce92ede353641840937fc5f383ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &7085191179080406885
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233307950393153643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.4869342, y: -1.9732707}
+  - {x: -2.4230015, y: 1.24599}
+  - {x: -1.5079978, y: 1.9380333}
+  - {x: 2.4515572, y: -0.57812595}
+  - {x: 2.2670894, y: -1.6575668}
+  - {x: 1.4905909, y: -1.9908891}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

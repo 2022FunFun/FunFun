@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2142753237310507613}
   - component: {fileID: 4171778199678586272}
   - component: {fileID: 6198557441996274431}
+  - component: {fileID: 3215024549761885283}
   m_Layer: 0
   m_Name: Waldo
   m_TagString: Untagged
@@ -97,3 +98,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319bc579388875645acef2f294910f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &3215024549761885283
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980956985840872117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.102939606, y: -0.780015}
+  - {x: -0.848495, y: 2.4357095}
+  - {x: -0.856196, y: 8.348915}
+  - {x: 0.15131152, y: 9.856561}
+  - {x: 0.8987993, y: 7.3167195}
+  - {x: 1.0570629, y: 1.3467445}
+  - {x: -0.11989117, y: -0.8357272}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

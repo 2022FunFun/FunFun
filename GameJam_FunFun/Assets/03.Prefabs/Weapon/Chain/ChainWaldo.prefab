@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5312545840468912827}
   - component: {fileID: 7917399439169908038}
   - component: {fileID: 144345926186326553}
+  - component: {fileID: 1284947775609028380}
   m_Layer: 0
   m_Name: ChainWaldo
   m_TagString: Untagged
@@ -97,3 +98,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319bc579388875645acef2f294910f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &1284947775609028380
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506024167925697107}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.82455117, y: -0.32543704}
+  - {x: -0.7511481, y: 8.662496}
+  - {x: 0.011418104, y: 9.34838}
+  - {x: 0.5148419, y: 8.267189}
+  - {x: 0.32074642, y: 3.2201679}
+  - {x: 0.1618216, y: -0.25875494}
+  - {x: -0.821751, y: -0.29955474}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
