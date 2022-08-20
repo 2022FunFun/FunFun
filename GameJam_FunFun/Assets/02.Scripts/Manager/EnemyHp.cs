@@ -6,6 +6,16 @@ using System;
 public class EnemyHp : MonoBehaviour, IDamageable
 {
     [SerializeField]public float hp;
+    private float startHp = 0;
+    private void Awake()
+    {
+        startHp = hp;
+    }
+    
+    private void OnEnable()
+    {
+        hp = startHp;
+    }
     public void OnDamage(Action lambda)
     {
         hp--;
@@ -22,12 +32,12 @@ public class EnemyHp : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Weapon"))
+        if(other.CompareTag("Weapon"))
             OnDamage(()=>{});
     }
 
     void Die()
     {
-        PoolManager.Instance.gameObject.SetActive(false);
+        PoolManager.Instance.Push(this.gameObject);
     }
 }
