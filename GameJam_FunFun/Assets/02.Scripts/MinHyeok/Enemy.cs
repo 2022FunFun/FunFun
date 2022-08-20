@@ -5,14 +5,40 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
-    void Start()
+    private bool mStun = false;
+    private bool chainmStun = false;
+    private void OnEnable()
     {
-        
+        StartCoroutine("Move");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void stun()
     {
-        transform.Translate(Vector3.down*speed*Time.deltaTime);
+        mStun = true;
     }
+    public void chainStun()
+    {
+        chainmStun = true;
+    }
+    IEnumerator Move()
+    {
+        while(true)
+        {
+            transform.Translate(Vector3.down*speed*Time.deltaTime);
+            yield return null;
+            if(mStun)
+            {
+                mStun = false;
+                yield return new WaitForSeconds(1.5f);
+            }
+            if(chainmStun)
+            {
+                chainmStun = false;
+                yield return new WaitForSeconds(3f);
+            }
+        }
+    }
+
+
 }

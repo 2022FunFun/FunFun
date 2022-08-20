@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142753237310507613}
   - component: {fileID: 4171778199678586272}
+  - component: {fileID: 6878881706978092241}
   m_Layer: 0
   m_Name: Waldo
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6878881706978092241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980956985840872117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319bc579388875645acef2f294910f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
