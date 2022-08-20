@@ -9,14 +9,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject UFOenemyPrefab;
     [SerializeField] Transform enemyTransform;
+    
+    public Transform enemyParent;
     private int random;
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(RandomSpawn());
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -31,28 +32,40 @@ public class EnemySpawner : MonoBehaviour
             switch (random)
             {
                 case 0:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x - 1f, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x - 1f, transform.position.y), Quaternion.identity);
+                    GameObject obj = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x - 1f, transform.position.y), Quaternion.identity);
+                    obj.transform.SetParent(enemyParent);
+                    GameObject objU = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x - 1f, transform.position.y), Quaternion.identity);
+                    objU.transform.SetParent(enemyParent);
                     break;
                 case 1:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.identity);
+                    GameObject obj1 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.identity);
+                    obj1.transform.SetParent(enemyParent);
+                    GameObject objU1 =PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.identity);
+                    objU1.transform.SetParent(enemyParent);
                     break;
                 case 2:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    GameObject obj2 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    obj2.transform.SetParent(enemyParent);
+                    GameObject objU2 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    objU2.transform.SetParent(enemyParent);
                     break;
                 case 3:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 0.5f, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 0.5f, transform.position.y), Quaternion.identity);
+                    GameObject obj3 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 0.5f, transform.position.y), Quaternion.identity);
+                    obj3.transform.SetParent(enemyParent);
+                    GameObject objU3 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 0.5f, transform.position.y), Quaternion.identity);
+                    objU3.transform.SetParent(enemyParent);
                     break;
                 case 4:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
+                    GameObject obj4 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
+                    obj4.transform.SetParent(enemyParent);
+                    GameObject objU4 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
+                    objU4.transform.SetParent(enemyParent);
                     break;
                 case 5:
-                    PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 1.5f, transform.position.y), Quaternion.identity);
-                    PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 1.5f, transform.position.y), Quaternion.identity);
+                    GameObject obj5 = PoolManager.Instance.Pop(enemyPrefab, new Vector2(transform.position.x + 1.5f, transform.position.y), Quaternion.identity);
+                    obj5.transform.SetParent(enemyParent);
+                    GameObject objU5 = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.position.x + 1.5f, transform.position.y), Quaternion.identity);
+                    objU5.transform.SetParent(enemyParent);
                     break;
             }
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
