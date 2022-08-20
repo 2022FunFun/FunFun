@@ -13,6 +13,7 @@ public class WaldoCommon : MonoBehaviour
     public void PlayAnimation()
     {
         transform.rotation = Quaternion.Euler(0, 0, -60);
+        GetComponent<CameraShake>()?.Shake();
         transform.DORotateQuaternion(Quaternion.Euler(0, 0, 60), 1f).OnComplete(() => { End(); });
     }
 

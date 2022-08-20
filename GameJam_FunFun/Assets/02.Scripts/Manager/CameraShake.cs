@@ -13,6 +13,7 @@ public class CameraShake : MonoBehaviour
     public void Shake()
     {
         mainCamera = Camera.main;
+        //mainCamera.GetComponent<GameObject>().SetActive(true);
         cameraPos = mainCamera.transform.position;
         InvokeRepeating("StartShake", 0f, 0.005f);
         Invoke("StopShake", duration);
@@ -31,6 +32,7 @@ public class CameraShake : MonoBehaviour
     void StopShake()
     {
         CancelInvoke("StartShake");
+        //mainCamera.GetComponent<GameObject>().SetActive(false);
         mainCamera.transform.position = cameraPos;
     }
 }

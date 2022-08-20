@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5755668384102983836}
   - component: {fileID: 5755668384102983827}
   - component: {fileID: 6367053238923144779}
+  - component: {fileID: 7756325649424202736}
   m_Layer: 0
   m_Name: Dual_2_1
   m_TagString: Weapon
@@ -126,6 +127,21 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &7756325649424202736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755668384102983825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb7ad5eb6e704cb5fb07f7fb37cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  shakeRange: 0.0302
+  duration: 0.5
 --- !u!1 &5755668385008887754
 GameObject:
   m_ObjectHideFlags: 0

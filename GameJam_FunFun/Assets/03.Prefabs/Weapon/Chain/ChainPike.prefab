@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 7856715648789321464}
   - component: {fileID: 6978654759275724844}
   - component: {fileID: 8429363994857925189}
+  - component: {fileID: 568504952115440098}
   m_Layer: 0
   m_Name: Pike
   m_TagString: Weapon
@@ -409,3 +410,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+--- !u!114 &568504952115440098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321273107365937601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb7ad5eb6e704cb5fb07f7fb37cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  shakeRange: 0.024
+  duration: 0.5

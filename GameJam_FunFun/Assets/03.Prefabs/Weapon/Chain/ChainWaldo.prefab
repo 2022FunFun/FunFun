@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7917399439169908038}
   - component: {fileID: 144345926186326553}
   - component: {fileID: 1284947775609028380}
+  - component: {fileID: 9025635452803679883}
   m_Layer: 0
   m_Name: ChainWaldo
   m_TagString: Weapon
@@ -125,3 +126,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &9025635452803679883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506024167925697107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb7ad5eb6e704cb5fb07f7fb37cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  shakeRange: 0.0297
+  duration: 1
