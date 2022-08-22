@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     private bool check2 = true;
 
     [SerializeField] int stage;
-
+    int i = 0;
     public GameObject sprite;
 
     void Awake()
@@ -41,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
         check1 = true;
         check2 = true;
+        i = 0;
     }
 
     void Update()
@@ -68,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
         leftenemy = 9;
         leftUFOenemy = 1;
         yield return new WaitForSeconds(3f);
-        while (leftenemy > 0)
+        while (i < 9)
         {
             random = Random.Range(0, 5);
             switch (random)
@@ -94,15 +95,19 @@ public class EnemySpawner : MonoBehaviour
                     obj4.transform.SetParent(enemyParent);
                     break;
             }
+            i++;
             yield return new WaitForSeconds(4f);
         }
-        GameObject obj = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
-        obj.transform.SetParent(enemyParent);
-        yield return null;
+        while(true)
+        {
+            GameObject obj = PoolManager.Instance.Pop(UFOenemyPrefab, new Vector2(transform.localPosition.x, transform.position.y), Quaternion.identity);
+            obj.transform.SetParent(enemyParent);
+            yield return new WaitForSeconds(4f);
+        }
     }
     IEnumerator Stage1Spawn()
     {
-        delay = 2f;
+        delay = 2.6f;
         leftenemy = 20;
         leftUFOenemy = 6;
         yield return new WaitForSeconds(1.5f);
@@ -240,15 +245,15 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
             if (leftenemy + leftUFOenemy < 40)
-                delay = 1.8f;
+                delay = 2.6f;
             if (leftenemy + leftUFOenemy < 30)
-                delay = 1.6f;
+                delay = 2.4f;
             if (leftenemy + leftUFOenemy < 20)
-                delay = 1.4f;
+                delay = 2.2f;
             if (leftenemy + leftUFOenemy < 15)
-                delay = 1.2f;
+                delay = 2f;
             if (leftenemy + leftUFOenemy < 10)
-                delay = 1f;
+                delay = 1.8f;
 
             if (leftenemy + leftUFOenemy <= 0)
             {
@@ -260,7 +265,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator Stage2Spawn()
     {
-        delay = 2.8f;
+        delay = 2.7f;
         leftenemy = 43;
         leftUFOenemy = 10;
         yield return new WaitForSeconds(1.5f);

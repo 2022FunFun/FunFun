@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7592166989683439863}
   m_Layer: 5
   m_Name: YedoButton
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
